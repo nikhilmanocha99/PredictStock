@@ -131,8 +131,7 @@ def update_data(n, val):  # inpur parameter(s)
 
 # callback for stocks graphs
 @app.callback([
-    #Output("graphs-content", "children"),
-    Output('description.children', 'children', allow_duplicate=True),
+    Output("graphs-content", "children"),
     Output("pricetable", "children")
 ], [
     Input("stock", "n_clicks"),
