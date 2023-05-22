@@ -1,7 +1,7 @@
 def prediction(stock, n_days):
     import dash
-    import dash_core_components as dcc
-    import dash_html_components as html
+    from dash import dcc
+    from dash import html
     from datetime import datetime as dt
     import yfinance as yf
     from dash.dependencies import Input, Output, State
