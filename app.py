@@ -10,7 +10,7 @@ import pandas as pd
 from sklearn.svm import *
 import plotly.graph_objs as go
 import plotly.express as px
-#from model import prediction
+from model import prediction
 
 # model
 # from model import prediction
@@ -35,7 +35,7 @@ def get_more(df):
     fig.update_traces(mode='lines+markers')
     return fig
 
-def prediction(stock, n_days):
+'''def prediction(stock, n_days):
     import dash
     import dash_core_components as dcc
     import dash_html_components as html
@@ -144,7 +144,7 @@ def prediction(stock, n_days):
     )
 
     return fig
-
+'''
 
 app = dash.Dash(
     __name__,
