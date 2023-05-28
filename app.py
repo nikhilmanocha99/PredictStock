@@ -275,8 +275,7 @@ def stock_price(n, start_date, end_date, val):
 
 
 @app.callback([
-    Output("main-content", "children"),
-    Output("forecast-content", "children"),],
+    Output("main-content", "children"),],
     [Input("indicators", "n_clicks"),
      Input('my-date-picker-range', 'start_date'),
      Input('my-date-picker-range', 'end_date')],
@@ -298,12 +297,12 @@ def indicators(n, start_date, end_date, val):
 
     if n > 0:
         fig = get_more(df_more)
-        return dcc.Graph(figure=fig), [dcc.Graph(figure=dd)]
+        return dcc.Graph(figure=fig)
     else:
         return [""], None
 
 # callback for forecast
-'''@app.callback([Output("forecast-content", "children"),
+@app.callback([Output("forecast-content", "children"),
                ],
               [Input("forecast", "n_clicks")],
               [State("n_days", "value"),
@@ -315,10 +314,10 @@ def forecast(n, n_days, val):
         raise PreventUpdate
     fig = prediction(val, int(n_days) + 1)
     return [dcc.Graph(figure=fig)]
-'''
+
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=False)
     
     
     
