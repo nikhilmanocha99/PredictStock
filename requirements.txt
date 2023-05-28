@@ -5,6 +5,7 @@ dash-renderer==1.8.2
 dash-table==4.10.1
 Flask
 Flask-Compress
+Werkzeug
 gunicorn==20.0.4
 lxml==4.5.2
 numpy==1.18.5
