@@ -10,6 +10,7 @@ import pandas as pd
 from sklearn.svm import *
 import plotly.graph_objs as go
 import plotly.express as px
+from model import prediction
 
 # model
 # from model import prediction
@@ -34,10 +35,19 @@ def get_more(df):
     fig.update_traces(mode='lines+markers')
     return fig
 
-def prediction(stock, n_days):
+'''def prediction(stock, n_days):
+    import dash
+    import dash_core_components as dcc
+    import dash_html_components as html
+    from datetime import datetime as dt
     import yfinance as yf
+    from dash.dependencies import Input, Output, State
+    from dash.exceptions import PreventUpdate
     import pandas as pd
     import plotly.graph_objs as go
+    import plotly.express as px
+    # model
+    from model import prediction
     from sklearn.model_selection import train_test_split
     from sklearn.model_selection import GridSearchCV
     import numpy as np
@@ -134,8 +144,7 @@ def prediction(stock, n_days):
     )
 
     return fig
-
-
+'''
 
 app = dash.Dash(
     __name__,
@@ -198,6 +207,7 @@ app.layout = html.Div(
                 html.Div(id='pricetable'),
                 html.Div([], id="main-content"),
                 html.Div([], id="forecast-content"),
+                #html.Div(id="predi"),
             ],
             className="content"), 
     ],
@@ -232,7 +242,6 @@ def update_data(n, val):  # inpur parameter(s)
 # callback for stocks graphs
 @app.callback([
     Output("graphs-content", "children"),
-    #Output('description.children', 'children', allow_duplicate=True),
     Output("pricetable", "children")
 ], [
     Input("stock", "n_clicks"),
@@ -302,6 +311,7 @@ def indicators(n, start_date, end_date, val):
 
 # callback for forecast
 @app.callback([Output("forecast-content", "children"),
+               #Output("predi", "children")
                ],
               [Input("forecast", "n_clicks")],
               [State("n_days", "value"),
@@ -312,7 +322,8 @@ def forecast(n, n_days, val):
     if val == None:
         raise PreventUpdate
     fig = prediction(val, int(n_days) + 1)
-    return [dcc.Graph(figure=fig)]
+    #df2 = prediction(val, int(n_days) + 1).df2
+    return [dcc.Graph(figure=fig)] #df2 dash_table.DataTable(data=df2.to_dict('records'))
 
 
 if __name__ == '__main__':
