@@ -283,9 +283,9 @@ def stock_price(n, start_date, end_date, val):
 )
 def indicators(n, start_date, end_date, val):
     if n is None:
-        return [""], None
+        return [""]
     if val is None:
-        return [""], None
+        return [""]
 
     if start_date is None:
         df_more = yf.download(val)
@@ -299,7 +299,7 @@ def indicators(n, start_date, end_date, val):
         fig = get_more(df_more)
         return dcc.Graph(figure=fig)
     else:
-        return [""], None
+        return [""]
 
 # callback for forecast
 @app.callback([Output("forecast-content", "children"),
@@ -308,10 +308,10 @@ def indicators(n, start_date, end_date, val):
               [State("n_days", "value"),
                State("dropdown_tickers", "value")])
 def forecast(n, n_days, val):
-    if n == None:
-        return [""]
-    if val == None:
-        raise PreventUpdate
+    #if n == None:
+     #   return [""]
+    #if val == None:
+     #   raise PreventUpdate
     fig = prediction(val, int(n_days) + 1)
     return [dcc.Graph(figure=fig)]
 
