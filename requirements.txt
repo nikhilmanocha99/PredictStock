@@ -12,7 +12,7 @@ numpy
 pandas
 plotly
 python-dateutil
-scikit-learn
+scikit-learn==1.0.1
 scipy
 sklearn
 urllib3
