@@ -11,12 +11,15 @@ body {
 }
 .container {
   display: flex;
+  background: black;
+  color: white;
 }
 
 .nav {
-  /*position: fixed;*/
+  position: sticky;
+  top:0;
   width: 25vw;
-  /* height: 100%; */
+  height: 100vh;
   align-items: center;
   display: flex;
   justify-content: flex-start;
@@ -28,12 +31,14 @@ body {
   width: 65vw;
   padding: 1rem 5rem;
 }
-
-.start {
-  margin-top: 2rem;
-  margin-bottom: 5rem;
-  text-align: center;
+#description{
+  margin: 2rem 0;
   font-size: larger;
+}
+.start {
+  margin:2rem 0;
+  text-align: center;
+  font-size: x-large;
   color: rgb(166, 243, 248);
 }
 
@@ -95,4 +100,17 @@ body {
 }
 #submit{
   display: none;
+}
+table{
+  margin: 1rem 0;
+  text-align: center;
+  color: black;
+}
+#pricetable td{
+  text-align: center;
+
+}
+#pricetable th{
+  text-align: center;
+  font-weight: bolder;
 }
